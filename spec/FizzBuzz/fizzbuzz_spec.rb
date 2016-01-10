@@ -15,6 +15,7 @@ describe "fizzbuzzメソッド" do
     it "3を与えたら'Fizz'を返す" do
       expect(FizzBuzz.fizzbuzz(3)).to eq "Fizz"
     end
+
     it "6を与えたら'Fizz'を返す" do
       expect(FizzBuzz.fizzbuzz(6)).to eq "Fizz"
     end
@@ -34,6 +35,7 @@ describe "fizzbuzzメソッド" do
     it "15を与えたら'FizzBuzz'を返す" do
       expect(FizzBuzz.fizzbuzz(15)).to eq "FizzBuzz"
     end
+
     it "30を与えたら'FizzBuzz'を返す" do
       expect(FizzBuzz.fizzbuzz(30)).to eq "FizzBuzz"
     end
@@ -46,16 +48,19 @@ describe "valid?メソッド" do
       expect(FizzBuzz.valid?("1")).to be_truthy
     end
   end
+
   describe "nil" do
     it "nilを与えたらfalseを返す" do
       expect(FizzBuzz.valid?(nil)).to be_falsey
     end
   end
+
   describe "ゼロ" do
     it "文字列'0'を与えたらfalseを返す" do
       expect(FizzBuzz.valid?("0")).to be_falsey
     end
   end
+
   describe "正の小数" do
     it "文字列'1.1'を与えたらfalseを返す" do
       expect(FizzBuzz.valid?("1.1")).to be_falsey
@@ -79,8 +84,4 @@ describe "valid?メソッド" do
       expect(FizzBuzz.valid?("あいうえお")).to be_falsey
     end
   end
-end
-
-describe "test" do
-  FizzBuzz
 end
