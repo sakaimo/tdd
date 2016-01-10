@@ -1,10 +1,6 @@
 require 'spec_helper'
 
-describe FizzBuzz do
-  # it "受け取った整数まで、1から1ずつ増やして出力する" do
-  #   expect(FizzBuzz.new.message).to eq "hello"
-  # end
-
+describe "fizzbuzzメソッド" do
   describe "3の倍数と5の倍数以外" do
     it "1を与えたら1を返す" do
       expect(FizzBuzz.fizzbuzz(1)).to eq 1
@@ -42,16 +38,49 @@ describe FizzBuzz do
       expect(FizzBuzz.fizzbuzz(30)).to eq "FizzBuzz"
     end
   end
+end
 
-  #describe "異常系" do
-  # it "0を与えたら何もしない" do
-  # end
-  #
-  #   it "マイナスの整数を与えたら何もしない" do
-  #   end
-  #
-  #   it "整数以外を受け取ったらなにもしない" do
-  #   end
-  # end
+describe "valid?メソッド" do
+  describe "正の整数" do
+    it "文字列'1'を与えたらtrueを返す" do
+      expect(FizzBuzz.valid?("1")).to be_truthy
+    end
+  end
+  describe "nil" do
+    it "nilを与えたらfalseを返す" do
+      expect(FizzBuzz.valid?(nil)).to be_falsey
+    end
+  end
+  describe "ゼロ" do
+    it "文字列'0'を与えたらfalseを返す" do
+      expect(FizzBuzz.valid?("0")).to be_falsey
+    end
+  end
+  describe "正の小数" do
+    it "文字列'1.1'を与えたらfalseを返す" do
+      expect(FizzBuzz.valid?("1.1")).to be_falsey
+    end
+  end
 
+  describe "負の整数" do
+    it "文字列'-1'を与えたらfalseを返す" do
+      expect(FizzBuzz.valid?("-1")).to be_falsey
+    end
+  end
+
+  describe "負の小数" do
+    it "文字列'-1.1'を与えたらfalseを返す" do
+      expect(FizzBuzz.valid?("-1.1")).to be_falsey
+    end
+  end
+
+  describe "文字列" do
+    it "文字列'あいうえお'を与えたらfalseを返す" do
+      expect(FizzBuzz.valid?("あいうえお")).to be_falsey
+    end
+  end
+end
+
+describe "test" do
+  FizzBuzz
 end
