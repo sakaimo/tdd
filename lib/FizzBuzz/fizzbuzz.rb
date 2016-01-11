@@ -1,6 +1,4 @@
-
 class FizzBuzz
-
   def display(arg)
     if valid?(arg)
       for i in 1..arg.to_i do
