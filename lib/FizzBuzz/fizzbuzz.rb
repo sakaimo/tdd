@@ -1,18 +1,11 @@
 class FizzBuzz
-  def display(arg)
-    if valid?(arg)
-      for i in 1..arg.to_i do
-        puts sort_number(i)
-      end
-    end
+
+  def argument_valid?(arg)
+    return false if arg.size != 1
+    return arg[0].match(/^[1-9]\d*$/) #正の整数
   end
 
-  def valid?(arg)
-    return false if arg.nil?
-    return arg.match(/^[1-9]\d*$/)
-  end
-
-  def sort_number(number)
+  def judged_number(number)
     return "FizzBuzz" if ((number % 3 == 0) && (number % 5 == 0))
     return "Fizz" if number % 3 == 0
     return "Buzz" if number % 5 == 0
@@ -21,4 +14,9 @@ class FizzBuzz
 end
 
 fizzbuzz = FizzBuzz.new
-fizzbuzz.display(ARGV[0])
+
+if fizzbuzz.argument_valid?(ARGV)
+  for i in 1..ARGV[0].to_i do
+    puts fizzbuzz.judged_number(i)
+  end
+end
